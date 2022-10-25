@@ -1,0 +1,34 @@
+# ddl-auto: none, create-drop, create, update, validate
+spring:
+  h2:
+    console:
+      enabled: false
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: com.asterlsker.housepit.core.config.JpaNamingStrategy
+    properties:
+      hibernate:
+        show-sql: true
+        default_batch_fetch_size: 100
+    open-in-view: false
+---
+spring.config.activate.on-profile: local
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+#  defer-datasource-initialization: true
+#  sql:
+#    init:
+#      data-locations: classpath:sql/**
+---
+spring.config.activate.on-profile: dev
