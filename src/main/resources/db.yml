@@ -3,9 +3,13 @@ spring:
     console:
       enabled: false
       path: /h2
+#  datasource:
+#    url: jdbc:h2:mem:testdb;MODE=PostgreSQL
+#    username: sa
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
+    url: jdbc:postgresql://127.0.0.1:5432/postgres?serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: pring
+    password: pring
   jpa:
     hibernate:
       ddl-auto: create-drop
