@@ -60,8 +60,6 @@ class CustomEnvironmentPostProcessor : EnvironmentPostProcessor, Ordered {
                     PropertySourcesPlaceholdersResolver(environment)
                 )
                 val profiles = binder.bind(springProfiles, Bindable.of(Array<String>::class.java))
-                println(profiles)
-                println(profiles.isBound)
                 if (!profiles.isBound) {
                     defaultPropertySource.add(it)
                     return@filter false
